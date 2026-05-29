@@ -1,5 +1,5 @@
 pandas
-pandasai
+pandasai==2.2.13
+pandasai-litellm
 matplotlib
-google-generativeai
 astor
