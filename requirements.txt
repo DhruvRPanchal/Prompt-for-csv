@@ -1,3 +1,7 @@
+
+pandas
+pandasai
+matplotlib
 langchain==0.1.12
 matplotlib==3.8.3
 pandas==1.5.3
