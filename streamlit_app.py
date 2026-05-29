@@ -8,7 +8,7 @@ matplotlib.use('TkAgg')
 
 
 API_KEY = st.secrets["GOOGLE_PALM2"]
-llm = GooglePalm(api_key=AQ.Ab8RN6JO5gfu71wbR9bzNPDJbfgwOXXtkv-k6pzJ9_yPqkVkvw)
+llm = GooglePalm(api_key=##########################################)
 
 
 st.title('Upload Your CSV File!!')
