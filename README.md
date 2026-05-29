@@ -1,8 +1,8 @@
-# Chat with CSV 🤖📊💬
+# Prompt for CSV 🤖📊💬
 
 ## Description
 
-Chat with CSV is an interactive tool designed to enable users to upload CSV files and perform commands or queries on the data within the CSV file. It serves as an analytic tool, allowing users to interact with their data using natural language commands.
+Prompt for CSV is an interactive tool designed to enable users to upload CSV files and perform commands or queries on the data within the CSV file. It serves as an analytic tool, allowing users to interact with their data using natural language commands.
 
 ## Table of Contents
 
