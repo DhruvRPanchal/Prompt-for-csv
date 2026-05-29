@@ -1,3 +1,2 @@
 pandas
 google-genai
-plotly
