@@ -1,11 +1,7 @@
 import streamlit as st
 import pandas as pd
 from pandasai import SmartDataframe
-from pandasai.llm import GoogleGemini  # Uses the working Gemini model
-import matplotlib
-
-# Tells the server to generate charts silently in the background
-matplotlib.use('Agg') 
+from pandasai.llm import GoogleGemini
 
 # Get your secret API key from Streamlit Cloud
 API_KEY = st.secrets["GOOGLE_PALM2"]
@@ -21,11 +17,15 @@ if uploaded_file:
     st.write(df.head())
 
     prompt = st.text_area("Enter Your Prompt")
-    df = SmartDataframe(df, config={"llm": llm})
+    
+    # We added an extra setting here to make sure charts work perfectly on the cloud
+    df = SmartDataframe(df, config={"llm": llm, "enable_cache": False})
 
     if st.button("Generate"):
         if prompt:
             with st.spinner("Generating Response..."):
-                st.write(df.chat(prompt))
+                # We use st.write to display text or charts automatically
+                response = df.chat(prompt)
+                st.write(response)
         else:
             st.warning("Enter Prompt")
