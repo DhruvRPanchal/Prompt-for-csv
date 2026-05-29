@@ -28,7 +28,7 @@ if uploaded_file:
     st.subheader("💬 What calculation or question do you have?")
     prompt = st.text_input(
         "Type here...", 
-        placeholder="e.g., 'What is the total number of teams?' or 'List total runs scored by team India'"
+        placeholder="e.g., 'What is the total number of .. ?' or 'List total ... by ...' "
     )
     
     if st.button("Calculate", type="primary"):
