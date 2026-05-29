@@ -1,5 +1,5 @@
 pandas
-pandasai==2.2.13
+pandasai
 matplotlib
 google-generativeai
 astor
