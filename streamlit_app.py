@@ -1,7 +1,8 @@
 import streamlit as st
 import pandas as pd
+import os
 from pandasai import SmartDataframe
-from pandasai.llm import GoogleGemini
+from pandasai_litellm.litellm import LiteLLM  # The official way to import models now
 
 # 1. Page Configuration
 st.set_page_config(page_title="AI Data Analyst", layout="wide")
@@ -10,12 +11,14 @@ st.title('📊 Upload Your CSV File!')
 # 2. Securely pull the Google Gemini API Key from Streamlit Dashboard Secrets
 if "GOOGLE_PALM2" in st.secrets:
     API_KEY = st.secrets["GOOGLE_PALM2"]
+    # LiteLLM looks for this specific environment variable to find your Google key
+    os.environ["GEMINI_API_KEY"] = API_KEY  
 else:
     st.error("Missing API Key! Please add GOOGLE_PALM2 to your Streamlit Secrets.")
     st.stop()
 
-# 3. Initialize the modern Gemini AI Model
-llm = GoogleGemini(api_key=API_KEY, model="gemini-1.5-flash")
+# 3. Initialize Google Gemini safely via LiteLLM
+llm = LiteLLM(model="gemini/gemini-1.5-flash")
 
 # 4. Sidebar File Uploader
 uploaded_file = st.sidebar.file_uploader("Upload your CSV data here:", type="csv")
@@ -30,7 +33,7 @@ if uploaded_file:
     st.subheader("💬 Ask your Data a Question")
     prompt = st.text_area("Example: 'What is the average sales?' or 'Make a bar chart of categories'")
     
-    # Configure PandasAI with custom chart paths for cloud environments
+    # Configure PandasAI
     df_smart = SmartDataframe(df, config={
         "llm": llm, 
         "enable_cache": False,
