@@ -35,10 +35,10 @@ pip install -r requirements.txt
 
 ### Configure Environment Variables
 
-Create a `.env` file and add your API key:
+Add your API key in .streamlit/secrets.toml:
 
 ```env
-OPENAI_API_KEY=your_api_key_here
+YourAPIProivder_API_KEY=your_api_key_here
 ```
 
 ## ▶️ Run the Application
@@ -109,10 +109,6 @@ Contributions, issues, and feature requests are welcome.
 3. Commit your changes
 4. Open a Pull Request
 
-## 📜 License
-
-This project is licensed under the MIT License.
-
----
+Built with ❤️ to make data exploration as simple as having a conversation.
 
 ⭐ If you find this project useful, consider giving it a star on GitHub.
